@@ -19,8 +19,6 @@ function CountriesList () {
         fetchCountries()
     }, [])
 
-    console.log(countries)
-
     return (
     <>
                 {!loading && (

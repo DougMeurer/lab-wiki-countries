@@ -12,13 +12,15 @@ function CountriesDetails () {
     useEffect(() => {
       setLoading(true)
       async function fetchCountry (){
-        const response = await axios.get(`https://ih-countries-api.herokuapp.com/${country.name.alpha3code}`)
+        const response = await axios.get(`https://ih-countries-api.herokuapp.com/countries/${alpha3code}`)
         setCountry(response.data)
+
+        console.log("aqui", response.data)
       setLoading(false)
       }
 
       fetchCountry()
-    }, [])
+    }, [alpha3code])
 
     return (
       <>
@@ -26,7 +28,7 @@ function CountriesDetails () {
         { !loading && (
           <>
           <div className="col-7">
-            <h1>{country.name}</h1>
+            <h1>{country.name.common}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
@@ -45,6 +47,7 @@ function CountriesDetails () {
                   <td>Borders</td>
                   <td>
                     <ul>
+                        {/* continuar aqui com um map do borders */}
                         
 
                       <li><a href="/AND">Andorra</a></li>
